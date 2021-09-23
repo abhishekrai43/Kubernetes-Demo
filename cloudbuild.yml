@@ -8,7 +8,7 @@ steps:
   args: ['apply', '-f', 'redis-deployment.yml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-prod'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'node-deployment.yml']
   env:
