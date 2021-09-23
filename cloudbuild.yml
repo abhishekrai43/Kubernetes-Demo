@@ -2,6 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'asia.gcr.io/generated-arena-325607/ixh-auth-repos:staging', '.']
   timeout: 500s
+
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'asia.gcr.io/generated-arena-325607/ixh-auth-repos:staging']
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -9,6 +10,14 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'node-service.yml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
+
+
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'node-deployment.yml']
   env:

@@ -24,17 +24,6 @@ spec:
             cpu: 500m
           requests:
             cpu: 200m
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ixh-auth-service
-spec:
-  selector:
-    app: ixh-auth
-  type: LoadBalancer
-  ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
+
+
 
