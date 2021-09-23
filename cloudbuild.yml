@@ -12,14 +12,14 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
 
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'node-service.yml']
+  args: ['apply', '-f', 'node-deployment.yml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
 
 
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'node-deployment.yml']
+  args: ['apply', '-f', 'node-service.yml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
