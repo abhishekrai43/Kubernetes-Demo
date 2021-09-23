@@ -23,6 +23,13 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['rollout', 'restart', 'deployment', 'ixh-auth-depl']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-staging'
+
 timeout: 500s
 options:
   logging: CLOUD_LOGGING_ONLY

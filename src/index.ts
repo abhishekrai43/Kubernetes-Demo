@@ -101,7 +101,7 @@ app.get('/test', (req, res) => {
     const output = fib(req.query.code)
     console.log('finished');
 
-    res.status(200).json(output +  ' Hello from Staging first try');
+    res.status(200).json(output +  ' Hello from Staging FINAL!');
 });
 
 app.get('/login', (req, res) => {
