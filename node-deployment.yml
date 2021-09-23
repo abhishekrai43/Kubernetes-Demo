@@ -22,9 +22,7 @@ spec:
         resources:
           requests:
             cpu: 100m
-        args:
-        - -cpus
-        - "2"
+
 
 
 
