@@ -101,7 +101,7 @@ app.get('/test', (req, res) => {
     const output = fib(req.query.code)
     console.log('finished');
 
-    res.status(200).json(output + 'new change');
+    res.status(200).json(output +  ' Hello from production!');
 });
 
 app.get('/login', (req, res) => {
