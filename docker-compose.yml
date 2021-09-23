@@ -1,0 +1,25 @@
+version: '3.2'
+
+networks:
+  default:
+    external:
+      name: IXH-AUTH
+
+services:
+  # auth-server:
+  #   image: node:12-alpine
+  #   working_dir: /auth-service
+  #   command: npm start
+  #   env_file: ./.env
+  #   volumes:
+  #     - type: bind
+  #       source: ./
+  #       target: /auth-service
+  #   ports:
+  #     - 3000:3000
+  redis:
+    image: redis:latest
+    networks:
+      - default
+    ports:
+      - 6381:6379

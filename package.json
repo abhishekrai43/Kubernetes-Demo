@@ -1,0 +1,34 @@
+{
+  "name": "ixh-auth-server",
+  "version": "1.0.0",
+  "description": "Auth server for ihx-backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arnab Das, arnab_d@pursuitsoftare.biz",
+  "license": "",
+  "dependencies": {
+    "@azure/functions": "^1.2.3",
+    "@azure/msal-node": "^1.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/redis": "^2.8.31",
+    "@types/uuid": "^8.3.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "https": "^1.0.0",
+    "cors": "2.8.5",
+    "redis": "3.0.2",
+    "uuid": "7.0.3",
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.3",
+    "typescript": "^4.4.2"
+  }
+}

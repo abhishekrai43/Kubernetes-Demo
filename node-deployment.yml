@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ixh-auth-depl
+  labels:
+    app: ixh-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ixh-auth
+  template:
+    metadata:
+      labels:
+        app: ixh-auth
+    spec:
+      containers:
+      - name: ixh-auth
+        image: asia.gcr.io/ixh-backend/demo:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ixh-auth-service
+spec:
+  selector:
+    app: ixh-auth
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+

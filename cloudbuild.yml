@@ -1,0 +1,20 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/generated-arena-325607/ixh-auth-repos', '.']
+  timeout: 500s
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us.gcr.io/generated-arena-325607/ixh-auth-repos']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'redis-deployment.yml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-prod'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'node-deployment.yml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=abhi-prod'
+timeout: 500s
+options:
+  logging: CLOUD_LOGGING_ONLY
+images: ['us.gcr.io/generated-arena-325607/ixh-auth-repos']
