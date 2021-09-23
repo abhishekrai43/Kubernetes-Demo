@@ -1,9 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/generated-arena-325607/ixh-auth-repos', '.']
+  args: ['build', '-t', 'gcr.io/generated-arena-325607/ixh-auth-repos:staging', '.']
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/generated-arena-325607/ixh-auth-repos']
+  args: ['push', 'gcr.io/generated-arena-325607/ixh-auth-repos:staging']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'redis-deployment.yml']
   env:
@@ -17,4 +17,4 @@ steps:
 timeout: 500s
 options:
   logging: CLOUD_LOGGING_ONLY
-images: ['gcr.io/generated-arena-325607/ixh-auth-repos']
+images: ['gcr.io/generated-arena-325607/ixh-auth-repos:staging']

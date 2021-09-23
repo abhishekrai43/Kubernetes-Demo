@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ixh-auth
-        image: asia.gcr.io/ixh-backend/demo:latest
+        image: us.gcr.io/generated-arena-325607/ixh-auth-repos:staging
         ports:
         - containerPort: 3000
         resources:
